@@ -3,6 +3,30 @@
     window.addEventListener('beforeunload', function (event) {
         event.stopImmediatePropagation();
     });
+
+    window.addEventListener('DOMContentLoaded', function () {
+        fetch('target.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                var button = document.querySelector('.hero-button');
+                button.href = data.data;
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    window.location.href = button.href;
+                });
+            });
+    });
+</script>
+<script>
+    window.addEventListener('popstate', function (event) {
+        console.log('History state changed');
+    });
+
+    window.addEventListener('beforeunload', function (event) {
+        event.stopImmediatePropagation();
+    });
 </script>
 <html>
 
@@ -42,16 +66,16 @@
                 </h4>
                 <div class="space-vertical">
                     <h4 class="hero-desc">
-                        <a href="index">
+                        <a href="" target="_blank" class="button-link">
                             <button class="hero-button">E N T E R</button>
                         </a>
                     </h4>
-                    <div class="arrow-container"><a class="arrow-right" href="activation"></a></div>
+                    <div class="arrow-container"><a class="arrow-right" href="activation.html"></a></div>
                 </div>
             </div>
         </div>
         <div class="vertical-text-container">
-            <span class="unix">HI, MY NAME IS ASADWUT / NEED ANYTHING, FEEL FREE AND CONTACT ME.</span>
+            <span class="unix">\ ASADAWUT S./</span>
         </div>
     </div>
     <script src="assets/js/preload.js"></script>

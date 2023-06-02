@@ -1,3 +1,7 @@
 RewriteEngine On
+
+# Redirect requests for non-existing HTML or PHP files
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,T=text/html,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
