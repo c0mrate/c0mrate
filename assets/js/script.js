@@ -108,8 +108,7 @@ function replaceTargetValue(target) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.success) {
                     showResult('');
-                    // Navigate to index.html
-                    window.location.href = 'index.html';
+                    window.location.href = 'index';
                 } else {
                     showResult('Failed to replace target value');
                 }
