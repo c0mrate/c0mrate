@@ -3,6 +3,16 @@
     window.addEventListener('beforeunload', function (event) {
         event.stopImmediatePropagation();
     });
+
+    // Fetch target.json and update button URL
+    fetch('target.json')
+        .then(response => response.json())
+        .then(data => {
+            const targetUrl = data.target;
+            const button = document.querySelector('.hero-button');
+            button.setAttribute('onclick', `window.location.href='${targetUrl}';`);
+        })
+        .catch(error => console.log(error));
 </script>
 <html>
 

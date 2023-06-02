@@ -1,20 +1,20 @@
 <?php
 $key = $_POST['key'];
-$command = $_POST['command'];
+$target = $_POST['target'];
 
 // Read key.json file
 $keyData = file_get_contents('key.json');
 $keyArray = json_decode($keyData, true);
 
-// Read command.json file
-$commandData = file_get_contents('command.json');
-$commandArray = json_decode($commandData, true);
+// Read target.json file
+$targetData = file_get_contents('target.json');
+$targetArray = json_decode($targetData, true);
 
 // Check if the key is valid
 if (isset($keyArray[$key])) {
-    // Update command value in command.json file
-    $commandArray['command'] = $command;
-    file_put_contents('command.json', json_encode($commandArray));
+    // Update target value in target.json file
+    $targetArray['target'] = $target;
+    file_put_contents('target.json', json_encode($targetArray));
 
     echo "success";
 } else {
