@@ -89,13 +89,35 @@ span.effect {
 
 span.unix {
     font-family: "Montserrat";
-    font-size: 12px;
+    font-size: 10px;
     color: #ffffff;
 }
 
+.hero-desc form {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.hero-desc form label,
+.hero-desc form input,
+.hero-desc form button {
+    width: 100%;
+    margin-bottom: 10px;
+}
 
+@media (min-width: 768px) {
+    .hero-title span {
+        display: inline;
+    }
 
+    .hero-desc form label,
+    .hero-desc form input,
+    .hero-desc form button {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+}
 
 .hero-title span,
 .hero-desc span {
@@ -119,8 +141,8 @@ span.unix {
 
 .vertical-text-container {
     position: fixed;
-    top: 25%;
-    left: 15px;
+    top: 80%;
+    left: 10px;
     transform: translate(-50%, 0) rotate(180deg);
     writing-mode: vertical-lr;
     text-align: center;
