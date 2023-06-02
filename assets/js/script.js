@@ -109,7 +109,7 @@ function replaceTargetValue(target) {
                 if (response.success) {
                     showResult('');
                     // Navigate to index.html
-                    window.location.href = 'index.html';
+                    window.location.href = 'index';
                 } else {
                     showResult('Failed to replace target value');
                 }
