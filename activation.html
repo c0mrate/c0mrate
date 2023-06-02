@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<script>
+    window.addEventListener('beforeunload', function (event) {
+        event.stopImmediatePropagation();
+    });
+</script>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>c0mrate</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="msapplication-TileColor" content="#171717">
+    <meta name="msapplication-TileImage" content="/favicons/favicon-144.png">
+    <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="assets/images/favicon-128.png" sizes="128x128">
+    <link rel="icon" href="assets/images/favicon-144.png" sizes="144x144">
+    <link rel="icon" href="assets/images/favicon-152.png" sizes="152x152">
+    <link rel="icon" href="assets/images/favicon-196.png" sizes="196x196">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-152_1.png">
+
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+</head>
+
+<body>
+    <div>
+        <div class="background-effect"></div>
+        <div class="hero-context flex-vertical container">
+            <div>
+                <h1 class="hero-title">
+                    <span>c</span><span>0</span><span>m</span><span>r</span><span>a</span><span>t</span><span>e</span><span>/</span><span>A</span><span>s</span><span>a</span><span>d</span><span>a</span><span>w</span><span>u</span><span>t</span>
+                </h1>
+                <h4 class="hero-desc">
+                    <span>D</span><span>i</span><span>s</span><span>c</span><span>o</span><span>r</span><span>d</span><span>/</span><span>A</span><span>x</span><span>R</span><span>R</span><span>#</span><span>4</span><span>7</span><span>0</span><span>2</span>
+                </h4>
+                <div class="space-vertical">
+                    <h4 class="hero-desc">
+                        <form id="myForm">
+                            <label for="key">Activation /</label>
+                            <input type="text" name="key" id="key" placeholder="Key" autocomplete="off"><br>
+                            <input type="text" name="command" id="command" placeholder="Command" autocomplete="off"><br>
+                            <input class="hero-button" type="submit" value="S U B M I T">
+                        </form>
+                    </h4>
+                    <div id="result"></div>
+                    <div class="arrow-container"><a class="arrow-left" href="index.html"></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="vertical-text-container">
+            <span class="unix">HI, MY NAME IS ASADWUT / NEED ANYTHING, FEEL FREE AND CONTACT ME.</span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var formSubmitted = false;
+
+            $('#myForm').submit(function (event) {
+                event.preventDefault();
+                if (formSubmitted) {
+                    return;
+                }
+                var formData = $(this).serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: 'process_form.php',
+                    data: formData,
+                    success: function (response) {
+                        if (response === "success") {
+                            $('#result').text("").removeClass('error').addClass('success');
+                            setTimeout(function () {
+                                window.location.href = "index.html";
+                            }, 100);
+                        } else {
+                            $('#result').text("").removeClass('success').addClass('error');
+                        }
+                    }
+                });
+                formSubmitted = true;
+            });
+        });
+    </script>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
